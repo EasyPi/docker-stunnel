@@ -1,0 +1,19 @@
+server:
+  image: easypi/stunnel
+  ports:
+    - "9080:9080"
+  volumes:
+    - ./data:/etc/stunnel
+    - ./data/server.conf:/etc/stunnel/stunnel.conf
+  restart: always
+
+client:
+  image: easypi/stunnel
+  ports:
+    - "1080:1080"
+  volumes:
+    - ./data:/etc/stunnel
+    - ./data/client.conf:/etc/stunnel/stunnel.conf
+  extra_hosts:
+    - server:1.2.3.4
+  restart: always
