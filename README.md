@@ -1,6 +1,9 @@
 stunnel
 =======
 
+[![Build Status](https://travis-ci.org/EasyPi/docker-stunnel.svg)](https://travis-ci.org/EasyPi/docker-stunnel)
+[![Docker Stars](https://img.shields.io/docker/stars/easypi/stunnel.svg)](https://hub.docker.com/r/easypi/stunnel/)
+
 [Stunnel][1] is a proxy designed to add TLS encryption functionality to
 existing clients and servers without any changes in the programs' code.
 
