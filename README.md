@@ -22,7 +22,7 @@ server:
 client:
   image: easypi/stunnel
   ports:
-    - "1080:1080"
+    - "9050:9050"
   volumes:
     - ./data:/etc/stunnel
     - ./data/client.conf:/etc/stunnel/stunnel.conf
@@ -31,7 +31,7 @@ client:
   restart: always
 ```
 
-## config stunnel
+## Config Stunnel
 
 ```bash
 $ mkdir -p ~/fig/stunnel/data
@@ -62,23 +62,28 @@ debug = warning
 
 [socks_client]
 client = yes
-accept = 0.0.0.0:1080
+accept = 0.0.0.0:9050
 connect = server:9080
 verifyPeer = yes
 CAfile = stunnel.crt
 ```
 
-## start server
+## Start Server
 
 ```bash
 $ docker-compose up -d server
 ```
 
-## start client
+## Start Client
 
 ```bash
 $ docker-compose up -d client
-$ curl -x socks5h://127.0.0.1:1080 ifconfig.co
+$ curl -x socks5h://127.0.0.1:9050 ifconfig.co
 ```
 
-[1]: https://www.stunnel.org/socksvpn.html
+## Known Issues
+
+- [ ] I've not made [Transparent SOCKS][2] work yet.
+
+[1]: https://www.stunnel.org/
+[2]: https://www.stunnel.org/socksvpn.html

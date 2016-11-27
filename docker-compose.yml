@@ -10,7 +10,8 @@ server:
 client:
   image: easypi/stunnel
   ports:
-    - "1080:1080"
+    - "9050:9050"
+    - "9051:9051"
   volumes:
     - ./data:/etc/stunnel
     - ./data/client.conf:/etc/stunnel/stunnel.conf
