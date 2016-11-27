@@ -4,7 +4,7 @@ services:
   - docker
 
 script:
-  - docker build -t easypi/stunnel
+  - docker build -t easypi/stunnel .
 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
